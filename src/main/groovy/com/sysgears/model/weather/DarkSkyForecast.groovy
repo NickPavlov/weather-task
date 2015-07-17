@@ -39,11 +39,24 @@ class DarkSkyForecast implements IWeatherUpdater {
     }
 
     /**
+     * Creates the <code>DarkSkyForecast</code> object specified by developer's personal key.
+     *
+     * @param apiKey
+     */
+    DarkSkyForecast(final String apiKey) {
+        this(apiKey, null)
+    }
+
+    /**
      * Returns the json response from the server.
      *
      * @return json
      */
     synchronized String update() {
+        if (!coordinates) {
+            throw new NullPointerException("Coordinates are not specified.")
+        }
+
         new BufferedReader(new InputStreamReader(url.openStream())).readLine()
     }
 
