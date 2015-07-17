@@ -1,6 +1,6 @@
 package com.sysgears.model.weather
 
-import com.sysgears.model.coordinates.ICoordinates
+import com.sysgears.model.coordinates.Coordinates
 
 /**
  * The <code>IWeatherUpdater</code> interface defines the behavior of the weather updater object.
@@ -19,5 +19,5 @@ interface IWeatherUpdater {
      *
      * @param coordinates
      */
-    void setLocation(final ICoordinates coordinates)
+    void setLocation(final Coordinates coordinates)
 }

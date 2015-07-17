@@ -3,7 +3,7 @@ package com.sysgears.model.coordinates
 /**
  * The <code>Coordinate</code> class provides functionality to work with coordinates.
  */
-class Coordinates implements ICoordinates {
+class Coordinates {
 
     /**
      * The latitude.

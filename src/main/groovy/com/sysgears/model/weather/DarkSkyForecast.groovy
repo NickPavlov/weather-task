@@ -1,7 +1,5 @@
 package com.sysgears.model.weather
 
-import com.sysgears.model.coordinates.ICoordinates
-
 /**
  * The <code>DarkSkyForecast</code> class provides functionality to work with The Dark Sky Forecast service.
  */
