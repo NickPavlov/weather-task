@@ -19,7 +19,7 @@ class Main {
     /**
      * Location coordinates.
      */
-    static final ICoordinates COORDINATES = new Coordinates(37.8267, 0) //-122.423
+    static final ICoordinates COORDINATES = new Coordinates(37.8267, -122.423)
 
     static void main(String[] args) {
         IWeatherUpdater weatherUpdater = new DarkSkyForecast(API_KEY, COORDINATES)
