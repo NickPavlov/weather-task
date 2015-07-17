@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5bc3c20-7653-4a1b-97d7-fd43983d6989" name="Default" comment="commit">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_all_2_0_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="f5bc3c20-7653-4a1b-97d7-fd43983d6989" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy" afterPath="$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy" />
     </list>
     <ignored path="Weather_Task.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,11 +57,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IParser.groovy" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IParser.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/json/IParser.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12903225">
+            <state vertical-scroll-proportion="0.0">
               <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.groovy" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4516129">
+              <caret line="21" column="82" selection-start-line="21" selection-start-column="82" selection-end-line="21" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -79,6 +82,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="Nick Pavlov &lt;pavlov.nikk@gmail.com&gt;" />
         <option value="Nick Pavlov" />
       </list>
     </option>
@@ -118,8 +122,8 @@
         <option value="$PROJECT_DIR$/src/main/groovy/com/sysgears/model/json/JsonResponse.groovy" />
         <option value="$PROJECT_DIR$/src/test/groovy/Test.groovy" />
         <option value="$PROJECT_DIR$/src/main/groovy/com/sysgears/model/json/JsonParser.groovy" />
-        <option value="$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy" />
         <option value="$PROJECT_DIR$/contributors.txt" />
+        <option value="$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy" />
       </list>
     </option>
   </component>
@@ -670,7 +674,7 @@
       <updated>1437033628894</updated>
       <workItem from="1437033639917" duration="307000" />
       <workItem from="1437034016813" duration="22843000" />
-      <workItem from="1437113349083" duration="10578000" />
+      <workItem from="1437113349083" duration="10619000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1437123249360</created>
@@ -678,11 +682,17 @@
       <option name="project" value="LOCAL" />
       <updated>1437123249360</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit">
+      <created>1437124158366</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1437124158366</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33728000" />
+    <option name="totallyTimeSpent" value="33769000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="47" y="24" width="1873" height="1056" extended-state="6" />
@@ -872,18 +882,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy">
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/json/IParser.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34408602">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/json/IParser.groovy">
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12903225">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4516129">
+          <caret line="21" column="82" selection-start-line="21" selection-start-column="82" selection-end-line="21" selection-end-column="82" />
           <folding />
         </state>
       </provider>
