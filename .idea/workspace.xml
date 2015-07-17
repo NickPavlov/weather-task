@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5bc3c20-7653-4a1b-97d7-fd43983d6989" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/sysgears/model/coordinates/Coordinates.class" afterPath="$PROJECT_DIR$/target/classes/com/sysgears/model/coordinates/Coordinates.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/sysgears/model/weather/DarkSkyForecast.class" afterPath="$PROJECT_DIR$/target/classes/com/sysgears/model/weather/DarkSkyForecast.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/sysgears/model/weather/IWeatherUpdater.class" afterPath="$PROJECT_DIR$/target/classes/com/sysgears/model/weather/IWeatherUpdater.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/sysgears/model/json/JsonParser.class" afterPath="$PROJECT_DIR$/target/classes/com/sysgears/model/json/JsonParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/com/sysgears/model/weather/DarkSkyForecast.groovy" afterPath="$PROJECT_DIR$/src/main/groovy/com/sysgears/model/weather/DarkSkyForecast.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy" afterPath="$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/com/sysgears/Service.groovy" afterPath="$PROJECT_DIR$/src/main/groovy/com/sysgears/Service.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Weather_Task.iws" />
@@ -51,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DarkSkyForecast.groovy" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DarkSkyForecast.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/weather/DarkSkyForecast.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53763443">
-              <caret line="56" column="74" selection-start-line="56" selection-start-column="74" selection-end-line="56" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -65,17 +62,17 @@
         <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/Service.groovy">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.groovy" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.groovy" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.086021505">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -125,11 +122,11 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/groovy/com/sysgears/model/http/Http.groovy" />
         <option value="$PROJECT_DIR$/src/test/groovy/Test.groovy" />
-        <option value="$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy" />
         <option value="$PROJECT_DIR$/src/main/groovy/com/sysgears/model/json/IParser.groovy" />
         <option value="$PROJECT_DIR$/src/main/groovy/com/sysgears/model/weather/IWeatherUpdater.groovy" />
-        <option value="$PROJECT_DIR$/src/main/groovy/com/sysgears/Service.groovy" />
         <option value="$PROJECT_DIR$/src/main/groovy/com/sysgears/model/weather/DarkSkyForecast.groovy" />
+        <option value="$PROJECT_DIR$/src/main/groovy/com/sysgears/Service.groovy" />
+        <option value="$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy" />
       </list>
     </option>
   </component>
@@ -722,7 +719,7 @@
       <updated>1437033628894</updated>
       <workItem from="1437033639917" duration="307000" />
       <workItem from="1437034016813" duration="22843000" />
-      <workItem from="1437113349083" duration="24588000" />
+      <workItem from="1437113349083" duration="24915000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1437123249360</created>
@@ -778,11 +775,17 @@
       <option name="project" value="LOCAL" />
       <updated>1437139772854</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="commit">
+      <created>1437139944383</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1437139944383</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47738000" />
+    <option name="totallyTimeSpent" value="48065000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="47" y="24" width="1873" height="1056" extended-state="6" />
@@ -988,6 +991,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/http/Http.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38709676">
+          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/weather/IWeatherUpdater.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1004,34 +1015,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/Service.groovy">
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/weather/DarkSkyForecast.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/http/Http.groovy">
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/Service.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38709676">
-          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/weather/DarkSkyForecast.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53763443">
-          <caret line="56" column="74" selection-start-line="56" selection-start-column="74" selection-end-line="56" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.086021505">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>

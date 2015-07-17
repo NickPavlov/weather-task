@@ -1,4 +1,6 @@
 package com.sysgears
+
+import com.sysgears.model.coordinates.Coordinates
 import com.sysgears.model.http.Http
 import com.sysgears.model.json.IParser
 import com.sysgears.model.json.JsonParser
@@ -14,11 +16,22 @@ class Service {
      */
     final IWeatherUpdater weatherUpdater;
 
+    /**
+     * Creates the <code>Service</code> object with a specified weather updater.
+     *
+     * @param weatherUpdater
+     */
     Service(final IWeatherUpdater weatherUpdater) {
         this.weatherUpdater = weatherUpdater
     }
 
+    /**
+     * Starts service.
+     */
     void start() {
+
+        weatherUpdater.setLocation(new Coordinates(37.8267, -122.423))
+
         String response = weatherUpdater.update()
         IParser jsonParser = new JsonParser(response)
 
