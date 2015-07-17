@@ -17,6 +17,11 @@ class Service {
     final IWeatherUpdater weatherUpdater;
 
     /**
+     * Refresh rate in milliseconds.
+     */
+    int refreshRate;
+
+    /**
      * Creates the <code>Service</code> object with a specified weather updater.
      *
      * @param weatherUpdater
@@ -40,10 +45,7 @@ class Service {
         Map data = (Map) jsonParser.get("currently")
 
         println "\n\nCurrently\n${jsonParser.get("currently")}\n"
-        //println "Summary: ${data.get("summary")}"
-        //println "Temperature: ${data.get("temperature")}"
         println "WindSpeed: ${data.get("windSpeed")}"
-        //println "humidity: ${data.get("humidity")}"
 
         String url = "https://push.geckoboard.com/v1/send/"
         String windSpeedWidget = "152712-5d5248f3-f78a-4f2d-b018-546aee106155"
