@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5bc3c20-7653-4a1b-97d7-fd43983d6989" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/com/sysgears/Service.groovy" afterPath="$PROJECT_DIR$/src/main/groovy/com/sysgears/Service.groovy" />
+    <list default="true" id="f5bc3c20-7653-4a1b-97d7-fd43983d6989" name="Default" comment="&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Weather_Task.iws" />
@@ -37,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JsonParser.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/json/JsonParser.groovy">
+      <file leaf-file-name="Http.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/http/Http.groovy">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -51,8 +50,29 @@
         <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/weather/DarkSkyForecast.groovy">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
-              <folding />
+              <caret line="65" column="66" selection-start-line="65" selection-start-column="66" selection-end-line="65" selection-end-column="66" />
+              <folding>
+                <element signature="e#88#204#0" expanded="false" />
+                <element signature="e#261#289#0" expanded="false" />
+                <element signature="e#367#411#0" expanded="false" />
+                <element signature="e#441#469#0" expanded="false" />
+                <element signature="e#504#538#0" expanded="false" />
+                <element signature="e#556#819#0" expanded="false" />
+                <element signature="n#!!block;n#DarkSkyForecast#0;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+                <element signature="e#968#1101#0" expanded="false" />
+                <element signature="n#!!block;n#DarkSkyForecast#1;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+                <element signature="n#!!block;n#DarkSkyForecast#1;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+                <element signature="e#1183#1271#0" expanded="false" />
+                <element signature="n#!!block;n#update#0;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+                <element signature="e#1333#1421#1" expanded="false" />
+                <element signature="e#1333#1421#0" expanded="false" />
+                <element signature="e#1333#1421#1" expanded="false" />
+                <element signature="e#1513#1553#0" expanded="false" />
+                <element signature="n#!!block;n#setLocation#0;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+                <element signature="e#1704#1768#0" expanded="false" />
+                <element signature="n#!!block;n#currentUrl#0;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+                <element signature="n#!!block;n#currentUrl#0;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,8 +80,8 @@
       <file leaf-file-name="Service.groovy" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/Service.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1397849">
-              <caret line="53" column="40" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.38709676">
+              <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -721,7 +741,7 @@
       <updated>1437033628894</updated>
       <workItem from="1437033639917" duration="307000" />
       <workItem from="1437034016813" duration="22843000" />
-      <workItem from="1437113349083" duration="26590000" />
+      <workItem from="1437113349083" duration="27125000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1437123249360</created>
@@ -795,11 +815,17 @@
       <option name="project" value="LOCAL" />
       <updated>1437140508951</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="commit">
+      <created>1437142134565</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1437142134565</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49740000" />
+    <option name="totallyTimeSpent" value="50275000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="47" y="24" width="1873" height="1056" extended-state="6" />
@@ -875,7 +901,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#88#204#0" expanded="false" />
+            <element signature="e#261#289#0" expanded="false" />
+            <element signature="e#367#411#0" expanded="false" />
+            <element signature="e#441#469#0" expanded="false" />
+            <element signature="e#504#538#0" expanded="false" />
+            <element signature="e#556#819#0" expanded="false" />
+            <element signature="n#!!block;n#DarkSkyForecast#0;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+            <element signature="e#968#1101#0" expanded="false" />
+            <element signature="n#!!block;n#DarkSkyForecast#1;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+            <element signature="n#!!block;n#DarkSkyForecast#1;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+            <element signature="e#1183#1271#0" expanded="false" />
+            <element signature="n#!!block;n#update#0;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+            <element signature="e#1333#1421#1" expanded="false" />
+            <element signature="e#1333#1421#0" expanded="false" />
+            <element signature="e#1333#1421#1" expanded="false" />
+            <element signature="e#1513#1553#0" expanded="false" />
+            <element signature="n#!!block;n#setLocation#0;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+            <element signature="e#1704#1768#0" expanded="false" />
+            <element signature="n#!!block;n#currentUrl#0;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+            <element signature="n#!!block;n#currentUrl#0;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -989,14 +1036,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/groovy/Test.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10752688">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/json/IParser.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2580645">
@@ -1005,34 +1044,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/http/Http.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38709676">
-          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/weather/IWeatherUpdater.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/json/JsonParser.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.17204301">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/weather/DarkSkyForecast.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1045,10 +1060,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/weather/IWeatherUpdater.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/http/Http.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/model/weather/DarkSkyForecast.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="66" selection-start-line="65" selection-start-column="66" selection-end-line="65" selection-end-column="66" />
+          <folding>
+            <element signature="e#88#204#0" expanded="false" />
+            <element signature="e#261#289#0" expanded="false" />
+            <element signature="e#367#411#0" expanded="false" />
+            <element signature="e#441#469#0" expanded="false" />
+            <element signature="e#504#538#0" expanded="false" />
+            <element signature="e#556#819#0" expanded="false" />
+            <element signature="n#!!block;n#DarkSkyForecast#0;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+            <element signature="e#968#1101#0" expanded="false" />
+            <element signature="n#!!block;n#DarkSkyForecast#1;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+            <element signature="n#!!block;n#DarkSkyForecast#1;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+            <element signature="e#1183#1271#0" expanded="false" />
+            <element signature="n#!!block;n#update#0;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+            <element signature="e#1333#1421#1" expanded="false" />
+            <element signature="e#1333#1421#0" expanded="false" />
+            <element signature="e#1333#1421#1" expanded="false" />
+            <element signature="e#1513#1553#0" expanded="false" />
+            <element signature="n#!!block;n#setLocation#0;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+            <element signature="e#1704#1768#0" expanded="false" />
+            <element signature="n#!!block;n#currentUrl#0;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+            <element signature="n#!!block;n#currentUrl#0;n#!!block;n#DarkSkyForecast#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/groovy/Test.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10752688">
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/Service.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1397849">
-          <caret line="53" column="40" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.38709676">
+          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
           <folding />
         </state>
       </provider>
