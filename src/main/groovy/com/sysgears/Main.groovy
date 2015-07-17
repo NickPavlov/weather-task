@@ -1,12 +1,11 @@
 package com.sysgears
-
 import com.sysgears.model.coordinates.Coordinates
 import com.sysgears.model.coordinates.ICoordinates
+import com.sysgears.model.http.Http
 import com.sysgears.model.json.IParser
 import com.sysgears.model.json.JsonParser
 import com.sysgears.model.weather.DarkSkyForecast
 import com.sysgears.model.weather.IWeatherUpdater
-
 /**
  * Main class.
  */
@@ -37,6 +36,17 @@ class Main {
         println "WindSpeed: ${data.get("windSpeed")}"
         println "humidity: ${data.get("humidity")}"
 
+
+        String url = "https://push.geckoboard.com/v1/send/152712-ecb527c2-540e-4894-97db-23f5cc6f1d9b"
+        String body = "{\"api_key\":\"c143d855c29d5fe59d2ce0830c834e04\"," +
+                "\"data\":{\"item\":${data.get("temperature")},\"min\":{\"value\":0},\"max\":{\"value\":100}}}"
+        Map<String, String> headers = new HashMap<String, String>()
+        headers.put("Content-Type", "application/json")
+        Http.post(url, headers, body)
+
+
+
+        /*
         data = (Map) jsonParser.get("minutely")
         println "\n\nMinutely:\n"
         int count = 0;
@@ -54,8 +64,9 @@ class Main {
             println "${count++}) Temperature: ${temp.get("temperature")} WindSpeed: ${temp.get("windSpeed")}"
         }
 
-        //println "\n\nMinutely\n${jsonParser.get("minutely")}"
-        //println "\n\nHourly\n${jsonParser.get("hourly")}"
-        //println "\n\nDaily\n${jsonParser.get("daily")}"
+        println "\n\nMinutely\n${jsonParser.get("minutely")}"
+        println "\n\nHourly\n${jsonParser.get("hourly")}"
+        println "\n\nDaily\n${jsonParser.get("daily")}"
+        */
     }
 }
