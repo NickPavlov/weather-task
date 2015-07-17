@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5bc3c20-7653-4a1b-97d7-fd43983d6989" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/sysgears/Main$_main_closure1.class" afterPath="$PROJECT_DIR$/target/classes/com/sysgears/Main$_main_closure1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/sysgears/Main.class" afterPath="$PROJECT_DIR$/target/classes/com/sysgears/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy" afterPath="$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -71,8 +72,8 @@
       <file leaf-file-name="Main.groovy" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.021505376">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.9892473">
+              <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -675,7 +676,7 @@
       <updated>1437033628894</updated>
       <workItem from="1437033639917" duration="307000" />
       <workItem from="1437034016813" duration="22843000" />
-      <workItem from="1437113349083" duration="12592000" />
+      <workItem from="1437113349083" duration="13615000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1437123249360</created>
@@ -707,11 +708,17 @@
       <option name="project" value="LOCAL" />
       <updated>1437124772263</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="commit">
+      <created>1437126159723</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1437126159723</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35742000" />
+    <option name="totallyTimeSpent" value="36765000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="47" y="24" width="1873" height="1056" extended-state="6" />
@@ -919,8 +926,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/com/sysgears/Main.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.021505376">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.9892473">
+          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
           <folding />
         </state>
       </provider>

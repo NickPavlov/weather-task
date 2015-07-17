@@ -40,16 +40,18 @@ class Main {
         data = (Map) jsonParser.get("minutely")
         println "\n\nMinutely:\n"
         int count = 0;
+        Map temp
         data.get("data").each {
-            println "${count++}) ${it}"
+            temp = (Map) it
+            println "${count++}) PrecipProbability: ${temp.get("precipProbability")} PrecipIntensity: ${temp.get("precipIntensity")}"
         }
 
         data = (Map) jsonParser.get("hourly")
         println "\n\nHourly:\n"
         count = 0;
         data.get("data").each {
-            Map hour = (Map) it
-            println "${count++}) Temperature: ${hour.get("temperature")} WindSpeed: ${hour.get("windSpeed")}"
+            temp = (Map) it
+            println "${count++}) Temperature: ${temp.get("temperature")} WindSpeed: ${temp.get("windSpeed")}"
         }
 
         //println "\n\nMinutely\n${jsonParser.get("minutely")}"
