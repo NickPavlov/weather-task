@@ -1,5 +1,7 @@
 package com.sysgears.model.weather
 
+import com.sysgears.model.coordinates.Coordinates
+
 /**
  * The <code>DarkSkyForecast</code> class provides functionality to work with The Dark Sky Forecast service.
  */
@@ -18,7 +20,7 @@ class DarkSkyForecast implements IWeatherUpdater {
     /**
      * Location.
      */
-    ICoordinates coordinates
+    Coordinates coordinates
 
     /**
      * The final link.
@@ -31,7 +33,7 @@ class DarkSkyForecast implements IWeatherUpdater {
      * @param apiKey the developer's personal api key
      * @param coordinates the location for which the weather forecast is needed
      */
-    DarkSkyForecast(final String apiKey, final ICoordinates coordinates) {
+    DarkSkyForecast(final String apiKey, final Coordinates coordinates) {
         this.apiKey = apiKey
         setLocation(coordinates)
     }
@@ -50,7 +52,7 @@ class DarkSkyForecast implements IWeatherUpdater {
      *
      * @return json
      */
-    synchronized String update() {
+    synchronized String getForecast() {
         if (!coordinates) {
             throw new NullPointerException("Coordinates are not specified.")
         }
@@ -61,7 +63,7 @@ class DarkSkyForecast implements IWeatherUpdater {
     /**
      * Sets new coordinates.
      */
-    synchronized void setLocation(final ICoordinates coordinates) {
+    synchronized void setLocation(final Coordinates coordinates) {
         this.coordinates = coordinates
         this.url = currentUrl()
     }

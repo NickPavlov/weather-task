@@ -37,7 +37,7 @@ class Service {
 
         weatherUpdater.setLocation(new Coordinates(37.8267, -122.423))
 
-        String response = weatherUpdater.update()
+        String response = weatherUpdater.getForecast()
         IParser jsonParser = new JsonParser(response)
 
         println "Response:\n${response}"

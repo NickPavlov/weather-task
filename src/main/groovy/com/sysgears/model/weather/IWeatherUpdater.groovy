@@ -12,7 +12,7 @@ interface IWeatherUpdater {
      *
      * @return response
      */
-    def update()
+    def getForecast()
 
     /**
      * Should set new location.
