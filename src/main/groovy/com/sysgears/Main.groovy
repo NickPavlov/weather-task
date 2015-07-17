@@ -1,4 +1,5 @@
 package com.sysgears
+
 import com.sysgears.model.coordinates.Coordinates
 import com.sysgears.model.coordinates.ICoordinates
 import com.sysgears.model.json.IParser
@@ -29,6 +30,7 @@ class Main {
         println "Response:\n${response}"
 
         Map data = (Map) jsonParser.get("currently")
+
         println "\n\nCurrently\n${jsonParser.get("currently")}\n"
         println "Summary: ${data.get("summary")}"
         println "Temperature: ${data.get("temperature")}"
@@ -40,6 +42,14 @@ class Main {
         int count = 0;
         data.get("data").each {
             println "${count++}) ${it}"
+        }
+
+        data = (Map) jsonParser.get("hourly")
+        println "\n\nHourly:\n"
+        count = 0;
+        data.get("data").each {
+            Map hour = (Map) it
+            println "${count++}) Temperature: ${hour.get("temperature")} WindSpeed: ${hour.get("windSpeed")}"
         }
 
         //println "\n\nMinutely\n${jsonParser.get("minutely")}"
