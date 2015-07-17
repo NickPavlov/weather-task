@@ -47,8 +47,13 @@ class Service {
         println "\n\nCurrently\n${jsonParser.get("currently")}\n"
         println "WindSpeed: ${data.get("windSpeed")}"
 
+
         String url = "https://push.geckoboard.com/v1/send/"
         String windSpeedWidget = "152712-5d5248f3-f78a-4f2d-b018-546aee106155"
+
+
+        //Highcharts
+        //String windSpeedWidget = "152712-9b44bbf8-d5b7-444e-8e25-ab1b54cb6f4d"
 
         String windSpeedBody = "{\"api_key\":\"c143d855c29d5fe59d2ce0830c834e04\"," +
                 "\"data\":{\"item\":${data.get("windSpeed")},\"min\":{\"value\":0},\"max\":{\"value\":100}}}"
