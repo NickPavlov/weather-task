@@ -13,19 +13,19 @@ class DarkSkyForecast implements IWeatherUpdater {
     static final String FIRST_API = "https://api.forecast.io/forecast/"
 
     /**
-     * Location.
-     */
-    final ICoordinates coordinates
-
-    /**
      * Developer's personal key.
      */
     final String apiKey
 
     /**
+     * Location.
+     */
+    ICoordinates coordinates
+
+    /**
      * The final link.
      */
-    final URL url
+    URL url
 
     /**
      * Creates the <code>DarkSkyForecast</code> object specified by developer's personal key and the location.
@@ -35,8 +35,7 @@ class DarkSkyForecast implements IWeatherUpdater {
      */
     DarkSkyForecast(final String apiKey, final ICoordinates coordinates) {
         this.apiKey = apiKey
-        this.coordinates = coordinates
-        this.url = new URL(FIRST_API + apiKey + "/" + coordinates)
+        setLocation(coordinates)
     }
 
     /**
@@ -44,7 +43,24 @@ class DarkSkyForecast implements IWeatherUpdater {
      *
      * @return json
      */
-    String update() {
+    synchronized String update() {
         new BufferedReader(new InputStreamReader(url.openStream())).readLine()
+    }
+
+    /**
+     * Sets new coordinates.
+     */
+    synchronized void setLocation(final ICoordinates coordinates) {
+        this.coordinates = coordinates
+        this.url = currentUrl()
+    }
+
+    /**
+     * Creates URL object.
+     *
+     * @return url
+     */
+    private URL currentUrl() {
+        new URL(FIRST_API + apiKey + "/" + coordinates)
     }
 }

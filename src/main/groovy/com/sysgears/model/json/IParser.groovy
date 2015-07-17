@@ -1,5 +1,4 @@
 package com.sysgears.model.json
-
 /**
  * The <code>IParser</code> interface defines the behavior of the parser object.
  */
