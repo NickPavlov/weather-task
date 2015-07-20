@@ -8,7 +8,7 @@ import com.sysgears.weather_task.model.weather.DarkSkyForecast
 class Main {
 
     /**
-     * Developer's personal key
+     * Developer's personal key.
      */
     static final String API_KEY = "16142d05a3314de31b6fce9a83469c06"
 
