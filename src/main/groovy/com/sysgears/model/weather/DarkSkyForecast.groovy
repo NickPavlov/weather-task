@@ -5,7 +5,7 @@ import com.sysgears.model.coordinates.Coordinates
 /**
  * The <code>DarkSkyForecast</code> class provides functionality to work with The Dark Sky Forecast service.
  */
-class DarkSkyForecast implements IWeatherUpdater {
+class DarkSkyForecast implements IWeatherForecast {
 
     /**
      * API link.
@@ -18,62 +18,35 @@ class DarkSkyForecast implements IWeatherUpdater {
     final String apiKey
 
     /**
-     * Location.
-     */
-    Coordinates coordinates
-
-    /**
-     * The final link.
-     */
-    URL url
-
-    /**
      * Creates the <code>DarkSkyForecast</code> object specified by developer's personal key and the location.
      *
      * @param apiKey the developer's personal api key
-     * @param coordinates the location for which the weather forecast is needed
-     */
-    DarkSkyForecast(final String apiKey, final Coordinates coordinates) {
-        this.apiKey = apiKey
-        setLocation(coordinates)
-    }
-
-    /**
-     * Creates the <code>DarkSkyForecast</code> object specified by developer's personal key.
-     *
-     * @param apiKey
      */
     DarkSkyForecast(final String apiKey) {
-        this(apiKey, null)
+        this.apiKey = apiKey
     }
 
     /**
-     * Returns the json response from the server.
+     * Returns weather forecast from the server in json format.
      *
-     * @return json
+     * @param coordinates the location for which the weather forecast is needed
+     * @return weather forecast in json format
      */
-    synchronized String getForecast() {
+    String getForecast(final Coordinates coordinates) {
         if (!coordinates) {
             throw new NullPointerException("Coordinates are not specified.")
         }
 
-        new BufferedReader(new InputStreamReader(url.openStream())).readLine()
-    }
-
-    /**
-     * Sets new coordinates.
-     */
-    synchronized void setLocation(final Coordinates coordinates) {
-        this.coordinates = coordinates
-        this.url = currentUrl()
+        new BufferedReader(new InputStreamReader(currentUrl(coordinates).openStream())).readLine()
     }
 
     /**
      * Creates URL object.
      *
+     * @param coordinates the location for which the weather forecast is needed
      * @return url
      */
-    private URL currentUrl() {
+    private URL currentUrl(final Coordinates coordinates) {
         new URL(FIRST_API + apiKey + "/" + coordinates)
     }
 }

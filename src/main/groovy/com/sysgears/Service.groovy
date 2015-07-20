@@ -4,7 +4,7 @@ import com.sysgears.model.coordinates.Coordinates
 import com.sysgears.model.http.Http
 import com.sysgears.model.json.IParser
 import com.sysgears.model.json.JsonParser
-import com.sysgears.model.weather.IWeatherUpdater
+import com.sysgears.model.weather.IWeatherForecast
 
 /**
  * The <code>Service</code> class provides...
@@ -14,7 +14,7 @@ class Service {
     /**
      * Weather updater.
      */
-    final IWeatherUpdater weatherUpdater;
+    final IWeatherForecast weatherUpdater;
 
     /**
      * Refresh rate in milliseconds.
@@ -26,7 +26,7 @@ class Service {
      *
      * @param weatherUpdater
      */
-    Service(final IWeatherUpdater weatherUpdater) {
+    Service(final IWeatherForecast weatherUpdater) {
         this.weatherUpdater = weatherUpdater
     }
 
@@ -34,10 +34,7 @@ class Service {
      * Starts service.
      */
     void start() {
-
-        weatherUpdater.setLocation(new Coordinates(37.8267, -122.423))
-
-        String response = weatherUpdater.getForecast()
+        String response = weatherUpdater.getForecast(new Coordinates(37.8267, -122.423))
         IParser jsonParser = new JsonParser(response)
 
         println "Response:\n${response}"
@@ -50,7 +47,6 @@ class Service {
 
         String url = "https://push.geckoboard.com/v1/send/"
         String windSpeedWidget = "152712-5d5248f3-f78a-4f2d-b018-546aee106155"
-
 
         //Highcharts
         //String windSpeedWidget = "152712-9b44bbf8-d5b7-444e-8e25-ab1b54cb6f4d"

@@ -12,10 +12,9 @@ class Http {
     /**
      * Performs POST request.
      *
-     * @param url
-     * @param headers
-     * @param body
-     * @return
+     * @param url http link
+     * @param headers http message headers
+     * @param body http message body
      */
     static void post(final String url, final Map<String, String> headers, final String body) {
         HttpPost request = new HttpPost(url)
