@@ -7,15 +7,17 @@ class Test {
 
     static void main(String[] args) {
 
-
-        BufferedReader file = new BufferedReader(new FileReader("/home/nick/Documents/highchart.txt"))
-        StringBuilder script = new StringBuilder()
+        BufferedReader file = new BufferedReader(new FileReader("/home/nick/Documents/data.txt"))
+        StringBuilder data = new StringBuilder()
         String line = ""
         while ((line = file.readLine()) != null) {
-            script.append(line + "\n")
+            data.append(line + "\n")
         }
 
-        println script.toString()
+        println data.toString()
+
+
+        String key = "c143d855c29d5fe59d2ce0830c834e04"
 
 
         //Highchart
@@ -24,14 +26,27 @@ class Test {
         //Geck-o-meter
         //String url = "https://push.geckoboard.com/v1/send/152712-7e44ff8d-e45d-4ca5-a4dc-777166c855ab"
 
+
         String windSpeedBody = "{\"api_key\":\"c143d855c29d5fe59d2ce0830c834e04\"," +
-                "\"data\":{${script.toString()}}   }"
+                "\"data\":{\"highchart\": " +
+                "\"{" +
+                "     chart: {type:\\\"area\\\"}," +
+                "     title: {text:\\\"Area chart with negative values\\\"}," +
+                "     xAxis: {categories: [\\\"Apples\\\", \\\"Oranges\\\"]}," +
+                "     series: [{name: \\\"John\\\", data: [5, 3, 4, 7, 2]}]" +
+                "}\"}   }"
 
 
-        println windSpeedBody
+        /*
+            String windSpeedBody = "{\"api_key\" : \"${key}\"," +
+                    "\"data\" : {   ${data.toString()}  }}"
+*/
+
+
+            println windSpeedBody
 
         Map<String, String> headers = new HashMap<String, String>()
-        //headers.put("Content-Type", "application/json")
+        headers.put("Content-Type", "application/json")
 
         println "Response code: " + Http.post(url, headers, windSpeedBody)
 
