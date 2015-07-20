@@ -40,16 +40,16 @@ class Http {
      * @param url http link
      * @param headers http message headers
      * @param body http message body
-     * @return status code
+     * @return request status
      */
-    static int post(final String url, final Map<String, String> headers, final String body) {
+    static String post(final String url, final Map<String, String> headers, final String body) {
         HttpPost request = new HttpPost(url)
         if (headers) {
             headers.each { request.addHeader(it.key, it.value) }
         }
         request.setEntity(new StringEntity(body))
 
-        HttpClientBuilder.create().build().execute(request).getStatusLine().statusCode;
+        HttpClientBuilder.create().build().execute(request).getStatusLine();
     }
 
     private Http() {

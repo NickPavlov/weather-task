@@ -46,7 +46,8 @@ class Service {
 
 
         String url = "https://push.geckoboard.com/v1/send/"
-        String windSpeedWidget = "152712-5d5248f3-f78a-4f2d-b018-546aee106155"
+        String windSpeedWidget = "152712-7e44ff8d-e45d-4ca5-a4dc-777166c855ab"
+        //String windSpeedWidget = "152712-5d5248f3-f78a-4f2d-b018-546aee106155"
 
         //Highcharts
         //String windSpeedWidget = "152712-9b44bbf8-d5b7-444e-8e25-ab1b54cb6f4d"
@@ -57,7 +58,7 @@ class Service {
         Map<String, String> headers = new HashMap<String, String>()
         headers.put("Content-Type", "application/json")
 
-        Http.post(url + windSpeedWidget, headers, windSpeedBody)
+        println Http.post(url + windSpeedWidget, headers, windSpeedBody)
 
     }
 }
