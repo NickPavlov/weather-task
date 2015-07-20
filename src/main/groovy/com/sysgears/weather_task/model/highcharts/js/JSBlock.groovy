@@ -10,14 +10,14 @@ class JSBlock {
     /**
      * Map of properties.
      */
-    final Map<String, Object> properties;
+    final Object properties;
 
     /**
      *
      * @param name block name
      * @param properties map
      */
-    JSBlock(final String name, final Map<String, Object> properties) {
+    JSBlock(final String name, final Object value) {
         this.name = name
         this.properties = properties
     }
@@ -27,11 +27,6 @@ class JSBlock {
      * @return
      */
     String toString() {
-        StringBuilder result = new StringBuilder();
-        properties.each({
-            result.append(JSText.getAsJSProperty(it.key, it.value))
-        })
-
-        "{${name}:${result.toString()}}"
+        ""
     }
 }

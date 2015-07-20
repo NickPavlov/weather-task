@@ -16,17 +16,11 @@ class JSText {
 
     /**
      *
-     * @param name property name
-     * @param value property value
+     * @param expression
      * @return
      */
-    static String getAsProperty(final String name, final Object value) {
-        if (value.getClass() == String) {
-            "{${name}:${addQuotes((String) value)}}"
-        } else {
-            "{${name}:${value.toString()}}"
-        }
-
+    static String escapeQuotes(final Object expression) {
+        (expression.getClass() == String) ? addQuotes((String) expression) : expression
     }
 
     /**
@@ -34,7 +28,32 @@ class JSText {
      * @param list
      * @return
      */
-    static String getAsList(final List list) {
+    static String printList(final List list) {
+        StringBuilder result = new StringBuilder()
+        result.append("[")
+        list.each({
+            result.append(escapeQuotes(it))
+            result.append(",")
+        })
+        result.append("]")
 
+        result.toString()
+    }
+
+    /**
+     *
+     * @param map
+     * @return
+     */
+    static String printMap(final Map map) {
+        StringBuilder result = new StringBuilder()
+        result.append("{")
+        map.each({
+            result.append("${it.key}:${escapeQuotes(it.value)}")
+            result.append(",")
+        })
+        result.append("}")
+
+        result.toString()
     }
 }

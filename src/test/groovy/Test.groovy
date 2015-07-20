@@ -1,4 +1,4 @@
-import com.sysgears.weather_task.model.highcharts.js.JSBlock
+import com.sysgears.weather_task.model.highcharts.js.JSText
 
 /**
  * Test.
@@ -14,38 +14,40 @@ class Test {
 
         //Geck-o-meter
         //String url = "https://push.geckoboard.com/v1/send/152712-7e44ff8d-e45d-4ca5-a4dc-777166c855ab"
-/*
 
+
+/*
         def json = JsonOutput.toJson([api_key: key, age: 42])
 
         String windSpeedBody = "{\"api_key\":\"${key}\"," +
                 "\"data\":{\"highchart\": " +
                 "\"{" +
-                "     chart: {type:\\\"area\\\"}," +
+                "     chart: {type:\\\"line\\\"}," +
                 "     title: {text:\\\"Area chart with negative values\\\"}," +
                 "     xAxis: {categories: [\\\"Apples\\\", \\\"Oranges\\\"]}," +
                 "     series: [{name: \\\"John\\\", data: [5, 3, 4, 7, 2]}]" +
                 "}\"}   }"
 
-
-
-            String windSpeedBody = "{\"api_key\" : \"${key}\"," +
-                    "\"data\" : {   ${data.toString()}  }}"
-
-
-
-            println windSpeedBody
+        println windSpeedBody
 
         Map<String, String> headers = new HashMap<String, String>()
         headers.put("Content-Type", "application/json")
 
         println "Response code: " + Http.post(url, headers, windSpeedBody)
-        */
+*/
+
 
         List list = ["1", "2", "3"]
+
+
+
+
         Map map = new HashMap()
-        map.put("list", list)
-         println new JSBlock("block", map)
+        map.put("1", 1)
+        map.put("2", 2)
+        map.put("color", "#ffffff")
+
+        println JSText.printMap(map)
 
 
     }
