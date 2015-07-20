@@ -20,12 +20,21 @@ class JSText {
      * @param value property value
      * @return
      */
-    static String getJSProperty(final String name, final Object value) {
+    static String getAsProperty(final String name, final Object value) {
         if (value.getClass() == String) {
             "{${name}:${addQuotes((String) value)}}"
         } else {
-            "{${name}:${value}}"
+            "{${name}:${value.toString()}}"
         }
+
+    }
+
+    /**
+     *
+     * @param list
+     * @return
+     */
+    static String getAsList(final List list) {
 
     }
 }

@@ -5,6 +5,8 @@ package com.sysgears.weather_task.model.highcharts.js
  */
 class JSBlock {
 
+    final String name;
+
     /**
      * Map of properties.
      */
@@ -13,9 +15,10 @@ class JSBlock {
     /**
      *
      * @param name block name
-     * @param properties map of properties
+     * @param properties map
      */
     JSBlock(final String name, final Map<String, Object> properties) {
+        this.name = name
         this.properties = properties
     }
 
@@ -24,9 +27,11 @@ class JSBlock {
      * @return
      */
     String toString() {
-        String result;
+        StringBuilder result = new StringBuilder();
         properties.each({
-
+            result.append(JSText.getAsJSProperty(it.key, it.value))
         })
+
+        "{${name}:${result.toString()}}"
     }
 }
