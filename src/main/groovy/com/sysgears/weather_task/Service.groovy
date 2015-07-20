@@ -1,10 +1,10 @@
-package com.sysgears
+package com.sysgears.weather_task
 
-import com.sysgears.model.coordinates.Coordinates
-import com.sysgears.model.http.Http
-import com.sysgears.model.json.IParser
-import com.sysgears.model.json.JsonParser
-import com.sysgears.model.weather.IWeatherForecast
+import com.sysgears.weather_task.model.coordinates.Coordinates
+import com.sysgears.weather_task.model.http.Http
+import com.sysgears.weather_task.model.json.IParser
+import com.sysgears.weather_task.model.json.JsonParser
+import com.sysgears.weather_task.model.weather.IWeatherForecast
 
 /**
  * The <code>Service</code> class provides...
@@ -59,27 +59,6 @@ class Service {
 
         Http.post(url + windSpeedWidget, headers, windSpeedBody)
 
-        /*
-        data = (Map) jsonParser.get("minutely")
-        println "\n\nMinutely:\n"
-        int count = 0;
-        Map temp
-        data.get("data").each {
-            temp = (Map) it
-            println "${count++}) PrecipProbability: ${temp.get("precipProbability")} PrecipIntensity: ${temp.get("precipIntensity")}"
-        }
 
-        data = (Map) jsonParser.get("hourly")
-        println "\n\nHourly:\n"
-        count = 0;
-        data.get("data").each {
-            temp = (Map) it
-            println "${count++}) Temperature: ${temp.get("temperature")} WindSpeed: ${temp.get("windSpeed")}"
-        }
-
-        println "\n\nMinutely\n${jsonParser.get("minutely")}"
-        println "\n\nHourly\n${jsonParser.get("hourly")}"
-        println "\n\nDaily\n${jsonParser.get("daily")}"
-        */
     }
 }

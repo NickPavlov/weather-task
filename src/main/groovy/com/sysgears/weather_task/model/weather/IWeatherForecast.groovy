@@ -1,6 +1,6 @@
-package com.sysgears.model.weather
+package com.sysgears.weather_task.model.weather
 
-import com.sysgears.model.coordinates.Coordinates
+import com.sysgears.weather_task.model.coordinates.Coordinates
 
 /**
  * The <code>IWeatherForecast</code> interface defines the behavior of the weather updater object.

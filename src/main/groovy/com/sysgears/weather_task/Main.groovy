@@ -1,6 +1,6 @@
-package com.sysgears
+package com.sysgears.weather_task
 
-import com.sysgears.model.weather.DarkSkyForecast
+import com.sysgears.weather_task.model.weather.DarkSkyForecast
 
 /**
  * Main class.

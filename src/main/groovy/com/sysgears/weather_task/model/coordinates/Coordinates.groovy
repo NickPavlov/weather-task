@@ -1,4 +1,4 @@
-package com.sysgears.model.coordinates
+package com.sysgears.weather_task.model.coordinates
 
 /**
  * The <code>Coordinate</code> class provides functionality to work with coordinates.

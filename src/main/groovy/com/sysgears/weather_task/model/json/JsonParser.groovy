@@ -1,4 +1,4 @@
-package com.sysgears.model.json
+package com.sysgears.weather_task.model.json
 
 import groovy.json.JsonSlurper
 
@@ -11,7 +11,7 @@ class JsonParser implements IParser {
     /**
      * Parsed map.
      */
-    private final Map data
+    final Map data
 
     /**
      * Parses map from the <code>data</code>.
@@ -19,7 +19,7 @@ class JsonParser implements IParser {
      * @param data
      * @return map
      */
-    private static Map parse(final String data) {
+    static Map parse(final String data) {
         if (!data) {
             throw new IllegalArgumentException("Weather data cannot be empty.")
         }
