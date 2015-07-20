@@ -59,6 +59,5 @@ class Service {
 
         Http.post(url + windSpeedWidget, headers, windSpeedBody)
 
-
     }
 }

@@ -1,6 +1,7 @@
 package com.sysgears.weather_task.model.weather
 
 import com.sysgears.weather_task.model.coordinates.Coordinates
+import com.sysgears.weather_task.model.http.Http
 
 /**
  * The <code>DarkSkyForecast</code> class provides functionality to work with The Dark Sky Forecast service.
@@ -37,7 +38,7 @@ class DarkSkyForecast implements IWeatherForecast {
             throw new NullPointerException("Coordinates are not specified.")
         }
 
-        new BufferedReader(new InputStreamReader(currentUrl(coordinates).openStream())).readLine()
+        Http.get(currentUrl(coordinates), null)
     }
 
     /**
@@ -46,7 +47,7 @@ class DarkSkyForecast implements IWeatherForecast {
      * @param coordinates the location for which the weather forecast is needed
      * @return url
      */
-    private URL currentUrl(final Coordinates coordinates) {
-        new URL(FIRST_API + apiKey + "/" + coordinates)
+    private String currentUrl(final Coordinates coordinates) {
+        FIRST_API + apiKey + "/" + coordinates
     }
 }
