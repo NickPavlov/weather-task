@@ -60,17 +60,10 @@ class Highchart implements IHighchart {
      * @param data data which need to be included into the configuration string
      */
     String getConfig(final List<Plot> data) {
-        //String seriesPattern = "(?<=series:\\[).*(?=\\])"
-        //Pattern pattern = Pattern.compile(seriesPattern)
-        //Matcher matcher = pattern.matcher(originalConfig)
-
         StringBuilder newData = new StringBuilder()
-        data.each {
-            newData.append("${it.toString()},")
-        }
+        data.each { newData.append("${it.toString()},") }
 
         String highchart = Text.replace(SERIES_BLOCK, originalConfig, newData.toString())
-        //String temp = originalConfig.replaceAll(seriesPattern, newData.toString())
         JsonOutput.toJson([api_key: apiKey, data: [highchart: highchart]])
     }
 

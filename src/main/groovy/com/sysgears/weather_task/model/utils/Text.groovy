@@ -7,6 +7,16 @@ class Text {
 
     /**
      *
+     * @param unixTime
+     * @param format
+     * @return
+     */
+    static String formatTime(final String unixTime, final String format) {
+        new Date(Long.valueOf(unixTime) * 1000).format(format)
+    }
+
+    /**
+     *
      * @param pattern regex pattern
      * @param expression original string
      * @param replacement string

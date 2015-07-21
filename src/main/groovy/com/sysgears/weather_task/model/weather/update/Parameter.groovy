@@ -15,8 +15,6 @@ class Parameter {
      */
     final int time
 
-
-
     /**
      * Creates the <code>Parameter</code> object specified by value and time.
      *

@@ -29,7 +29,7 @@ class Plot {
      * @param color String
      * @param data list of data
      */
-    Plot(final String name, final String color, final List<Double> data) {
+    Plot(final String name, final String color, final List data) {
         this.name = name
         this.color = color
         this.data = data
