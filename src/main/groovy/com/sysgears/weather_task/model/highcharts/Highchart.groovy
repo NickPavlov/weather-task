@@ -1,10 +1,12 @@
 package com.sysgears.weather_task.model.highcharts
 
 import com.sysgears.weather_task.model.file.TextFileReader
+import com.sysgears.weather_task.model.highcharts.plot.Plot
+import com.sysgears.weather_task.model.utils.Text
 import groovy.json.JsonOutput
 
 /**
- * The <code>Highchart</code> class provides functionality to work with a Geckoboard highcharts diagrams.
+ * The <code>Highchart</code> class provides functionality to work with a Geckoboard highchart diagrams.
  */
 class Highchart implements IHighchart {
 
@@ -14,14 +16,19 @@ class Highchart implements IHighchart {
     static final API_URL = "https://push.geckoboard.com/v1/send/"
 
     /**
+     * Series block pattern.
+     */
+    static final SERIES_BLOCK = "(?<=series:\\[).*(?=\\])"
+
+    /**
      * Widget key.
      */
     final String widgetKey
 
     /**
-     * Highchart configuration.
+     * Original highchart configuration.
      */
-    String config
+    final String originalConfig
 
     /**
      * Developer's personal api key.
@@ -41,37 +48,43 @@ class Highchart implements IHighchart {
      * @return Highchart object
      */
     static Highchart createFromFile(final String path, final String widgetKey, final String apiKey) {
-        String highchartFile = new TextFileReader().getContent(path)
-        String postBody = JsonOutput.toJson([api_key: apiKey, data: [highchart: highchartFile.toString()]])
+        //String highchartFile = new TextFileReader().getContent(path)
+        //String postBody = JsonOutput.toJson([api_key: apiKey, data: [highchart: highchartFile.toString()]])
 
-        new Highchart(widgetKey, apiKey, postBody)
+        new Highchart(widgetKey, apiKey, new TextFileReader().getContent(path))
     }
 
     /**
-     * Updates data.
+     * Returns configuration string in parser format.
      *
-     * @param new data
+     * @param data data which need to be included into the configuration string
      */
-    void updateData(final List<Plot> data) {
-        String seriesPattern = "(?<=series:\\[).*(?=\\])"
+    String getConfig(final List<Plot> data) {
+        //String seriesPattern = "(?<=series:\\[).*(?=\\])"
+        //Pattern pattern = Pattern.compile(seriesPattern)
+        //Matcher matcher = pattern.matcher(originalConfig)
+
         StringBuilder newData = new StringBuilder()
         data.each {
-            newData.append("${data.toString()},")
+            newData.append("${it.toString()},")
         }
-        config = config.replaceAll(seriesPattern, newData.toString())
+
+        String highchart = Text.replace(SERIES_BLOCK, originalConfig, newData.toString())
+        //String temp = originalConfig.replaceAll(seriesPattern, newData.toString())
+        JsonOutput.toJson([api_key: apiKey, data: [highchart: highchart]])
     }
 
     /**
      * Creates the <code>Highchart</code> object specified by widget key,
-     * JavaScript config, developer's personal key.
+     * JavaScript originalConfig, developer's personal key.
      *
      * @param widgetKey widget unique key
      * @param apiKey developer's personal key
-     * @param config highchart config
+     * @param config highchart originalConfig
      */
     private Highchart(final String widgetKey, final String apiKey, final String config) {
         this.widgetKey = widgetKey
-        this.config = config
+        this.originalConfig = config
         this.apiKey = apiKey
         this.requestURL = API_URL + widgetKey
     }

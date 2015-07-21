@@ -1,10 +1,10 @@
-package com.sysgears.weather_task.model.json
+package com.sysgears.weather_task.model.parser
 
 import groovy.json.JsonSlurper
 
 /**
  * The <code>JsonParser</code> class provides functionality to work with JSON data.
- * Uses the JsonSlurper API to parse the json.
+ * Uses the JsonSlurper API to parse the parser.
  */
 class JsonParser implements IParser {
 

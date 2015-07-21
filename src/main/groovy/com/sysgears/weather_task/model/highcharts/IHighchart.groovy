@@ -1,14 +1,17 @@
 package com.sysgears.weather_task.model.highcharts
 
+import com.sysgears.weather_task.model.highcharts.plot.Plot
+
 /**
  * The <code>IHighchart</code> interface defines the behavior of the highchart object.
  */
 interface IHighchart {
 
     /**
-     * Should update "series" block with a new data.
+     * Should return highchart chart configuration.
+     * <code>data</code> represents elements of "series" block.
      *
-     * @param data new data
+     * @param data data which need to be included into the configuration string
      */
-    void updateData(final List<Plot> data);
+    String getConfig(final List<Plot> data);
 }

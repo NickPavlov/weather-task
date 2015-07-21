@@ -28,10 +28,10 @@ class DarkSkyForecast implements IWeatherForecast {
     }
 
     /**
-     * Returns weather forecast from the server in json format.
+     * Returns weather forecast from the server in parser format.
      *
      * @param coordinates the location for which the weather forecast is needed
-     * @return weather forecast in json format
+     * @return weather forecast in parser format
      */
     String getForecast(final Coordinates coordinates) {
         if (!coordinates) {

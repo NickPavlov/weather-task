@@ -1,4 +1,4 @@
-package com.sysgears.weather_task.model.json
+package com.sysgears.weather_task.model.parser
 /**
  * The <code>IParser</code> interface defines the behavior of the parser object.
  */

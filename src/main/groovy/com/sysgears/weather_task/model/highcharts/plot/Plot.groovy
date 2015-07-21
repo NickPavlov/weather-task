@@ -1,4 +1,4 @@
-package com.sysgears.weather_task.model.highcharts
+package com.sysgears.weather_task.model.highcharts.plot
 
 import groovy.json.JsonOutput
 
