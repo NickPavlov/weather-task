@@ -1,54 +1,30 @@
-import com.sysgears.weather_task.model.highcharts.js.JSText
+import com.sysgears.weather_task.model.file.TextFileReader
+import com.sysgears.weather_task.model.http.Http
+import groovy.json.JsonOutput
 
 /**
  * Test.
  */
 class Test {
 
+    static final PATH = "/home/nick/IdeaProjects/Weather_Task/src/main/resources/highchart.js"
+    static final API_KEY = "c143d855c29d5fe59d2ce0830c834e04"
+    static final URL = "https://push.geckoboard.com/v1/send/"
+    static final WIDGET = "152712-4ea7c95d-2f0d-49cc-8a08-59a6658b64ee"
+
     static void main(String[] args) {
 
-        String key = "c143d855c29d5fe59d2ce0830c834e04"
+        String jsFile = new TextFileReader().getContent(PATH)
 
-        //Highchart
-        String url = "https://push.geckoboard.com/v1/send/152712-4ea7c95d-2f0d-49cc-8a08-59a6658b64ee"
+        //String temp = StringEscapeUtils.escapeJavaScript(jsFile.toString())
+        String postBody = JsonOutput.toJson([api_key: API_KEY, data: [highchart: jsFile.toString()]])
+        println postBody
 
-        //Geck-o-meter
-        //String url = "https://push.geckoboard.com/v1/send/152712-7e44ff8d-e45d-4ca5-a4dc-777166c855ab"
-
-
-/*
-        def json = JsonOutput.toJson([api_key: key, age: 42])
-
-        String windSpeedBody = "{\"api_key\":\"${key}\"," +
-                "\"data\":{\"highchart\": " +
-                "\"{" +
-                "     chart: {type:\\\"line\\\"}," +
-                "     title: {text:\\\"Area chart with negative values\\\"}," +
-                "     xAxis: {categories: [\\\"Apples\\\", \\\"Oranges\\\"]}," +
-                "     series: [{name: \\\"John\\\", data: [5, 3, 4, 7, 2]}]" +
-                "}\"}   }"
-
-        println windSpeedBody
-
+        /*
         Map<String, String> headers = new HashMap<String, String>()
         headers.put("Content-Type", "application/json")
+        */
 
-        println "Response code: " + Http.post(url, headers, windSpeedBody)
-*/
-
-
-        List list = ["1", "2", "3"]
-
-
-
-
-        Map map = new HashMap()
-        map.put("1", 1)
-        map.put("2", 2)
-        map.put("color", "#ffffff")
-
-        println JSText.printMap(map)
-
-
+        println "Response code: " + Http.post(URL + WIDGET, ["Content-Type": "application/json"], postBody)
     }
 }

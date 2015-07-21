@@ -1,4 +1,4 @@
-package com.sysgears.weather_task.model.highcharts.js
+package com.sysgears.weather_task.model.js
 
 /**
  * The <code>JSBlock</code> class provides functionality...
