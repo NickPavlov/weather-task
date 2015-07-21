@@ -4,24 +4,34 @@ import com.sysgears.weather_task.model.file.TextFileReader
 import groovy.json.JsonOutput
 
 /**
- * The <code>Highchart</code> class provides functionality to work with a highcharts diagrams.
+ * The <code>Highchart</code> class provides functionality to work with a Geckoboard highcharts diagrams.
  */
-class Highchart {
+class Highchart implements IHighchart {
+
+    /**
+     * Geckoboard API link.
+     */
+    static final API_URL = "https://push.geckoboard.com/v1/send/"
 
     /**
      * Widget key.
      */
-    final String widgetKey;
+    final String widgetKey
 
     /**
      * Highchart configuration.
      */
-    final String config;
+    String config
 
     /**
      * Developer's personal api key.
      */
-    final String apiKey;
+    final String apiKey
+
+    /**
+     * Link to update data on the widget.
+     */
+    final String requestURL;
 
     /**
      * Creates the <code>Highchart</code> object from file.
@@ -38,12 +48,17 @@ class Highchart {
     }
 
     /**
-     * Updates series data.
+     * Updates data.
      *
-     * @param series new data
+     * @param new data
      */
-    void updateSeries(final List series) {
-
+    void updateData(final List<Plot> data) {
+        String seriesPattern = "(?<=series:\\[).*(?=\\])"
+        StringBuilder newData = new StringBuilder()
+        data.each {
+            newData.append("${data.toString()},")
+        }
+        config = config.replaceAll(seriesPattern, newData.toString())
     }
 
     /**
@@ -58,5 +73,6 @@ class Highchart {
         this.widgetKey = widgetKey
         this.config = config
         this.apiKey = apiKey
+        this.requestURL = API_URL + widgetKey
     }
 }

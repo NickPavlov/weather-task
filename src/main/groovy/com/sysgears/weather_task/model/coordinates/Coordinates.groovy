@@ -16,9 +16,10 @@ class Coordinates {
     private double longitude;
 
     /**
+     * Creates the <code>Coordinates</code> object specified by latitude and longitude.
      *
-     * @param latitude
-     * @param longitude
+     * @param latitude latitude
+     * @param longitude longitude
      */
     Coordinates(final double latitude, final double longitude) {
         this.latitude = latitude
@@ -44,11 +45,13 @@ class Coordinates {
     }
 
     /**
+     * Returns String representation of the current object
+     * in a format "latitude,longitude".
      *
-     * @return
+     * @return String
      */
     @Override
     public String toString() {
-        return latitude + "," +longitude;
+        return latitude + "," + longitude;
     }
 }
