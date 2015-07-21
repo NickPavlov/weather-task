@@ -53,7 +53,9 @@ class Service {
      * Starts service.
      */
     void start() {
-        String response = weatherUpdater.getForecast(new Coordinates(37.8267, -122.423))
+        //Coordinates coordinates = new Coordinates(new Coordinates(37.8267, -122.423))
+        Coordinates coordinates = new Coordinates(48.455329, 35.035030)
+        String response = weatherUpdater.getForecast(coordinates)
         IParser jsonParser = new JsonParser(response)
 
         Map hourly = (Map) jsonParser.get("hourly")

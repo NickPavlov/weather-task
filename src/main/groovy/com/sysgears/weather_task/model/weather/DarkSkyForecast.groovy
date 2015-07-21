@@ -38,16 +38,6 @@ class DarkSkyForecast implements IWeatherForecast {
             throw new NullPointerException("Coordinates are not specified.")
         }
 
-        Http.get(currentUrl(coordinates), null)
-    }
-
-    /**
-     * Creates URL object.
-     *
-     * @param coordinates the location for which the weather forecast is needed
-     * @return url
-     */
-    private String currentUrl(final Coordinates coordinates) {
-        FIRST_API + apiKey + "/" + coordinates
+        Http.get(FIRST_API + apiKey + "/" + coordinates, null)
     }
 }

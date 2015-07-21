@@ -13,6 +13,18 @@ class UpdateRate {
      * @return int
      */
     static int evaluate(final List<Parameter> data, final double allowableDifference) {
+        int rate;
+
+        Parameter temp;
+
+        Iterator i = data.iterator()
+
+        double currentValue;
+
+        while (i.hasNext()) {
+            currentValue = i.next().value
+        }
+
         0
     }
 }

@@ -17,7 +17,7 @@ class Converter {
      * @param decimalCount count of decimals signs
      * @return double
      */
-    static double toCelsius(final double fahrenheit, final int decimalCount) {
+    static double toCelsius(final double fahrenheit) {
         Math.round((5/9) * (fahrenheit - 32) * accuracy) / accuracy
     }
 }
