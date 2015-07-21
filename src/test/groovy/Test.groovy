@@ -1,6 +1,5 @@
-import com.sysgears.weather_task.model.file.TextFileReader
+import com.sysgears.weather_task.model.highcharts.Highchart
 import com.sysgears.weather_task.model.http.Http
-import groovy.json.JsonOutput
 
 /**
  * Test.
@@ -14,17 +13,10 @@ class Test {
 
     static void main(String[] args) {
 
-        String jsFile = new TextFileReader().getContent(PATH)
+        Highchart hchart = Highchart.createFromFile(PATH, WIDGET, API_KEY)
+        Map headers = ["Content-Type": "application/json"]
 
-        //String temp = StringEscapeUtils.escapeJavaScript(jsFile.toString())
-        String postBody = JsonOutput.toJson([api_key: API_KEY, data: [highchart: jsFile.toString()]])
-        println postBody
-
-        /*
-        Map<String, String> headers = new HashMap<String, String>()
-        headers.put("Content-Type", "application/json")
-        */
-
-        println "Response code: " + Http.post(URL + WIDGET, ["Content-Type": "application/json"], postBody)
+        println "Response status:"
+        println Http.post(URL + WIDGET, headers, hchart.getConfig())
     }
 }
