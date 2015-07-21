@@ -7,7 +7,7 @@ import com.sysgears.weather_task.model.json.JsonParser
 import com.sysgears.weather_task.model.weather.IWeatherForecast
 
 /**
- * The <code>Service</code> class provides...
+ * The <code>Service</code> class combines logic of the main components.
  */
 class Service {
 
