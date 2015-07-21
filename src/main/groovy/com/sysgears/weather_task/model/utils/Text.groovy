@@ -6,6 +6,7 @@ package com.sysgears.weather_task.model.utils
 class Text {
 
     /**
+     * Returns unix time formatted according to <code>format</code>.
      *
      * @param unixTime
      * @param format

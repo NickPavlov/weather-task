@@ -9,9 +9,10 @@ class UpdateRate {
      * Returns time in milliseconds.
      *
      * @param data data which will be analyzed
+     * @param allowableDifference the difference between adjacent elements
      * @return int
      */
-    static int evaluate(final List<Parameter> data) {
+    static int evaluate(final List<Parameter> data, final double allowableDifference) {
         0
     }
 }

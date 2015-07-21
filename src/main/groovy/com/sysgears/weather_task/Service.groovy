@@ -6,6 +6,7 @@ import com.sysgears.weather_task.model.highcharts.plot.Plot
 import com.sysgears.weather_task.model.http.Http
 import com.sysgears.weather_task.model.parser.IParser
 import com.sysgears.weather_task.model.parser.JsonParser
+import com.sysgears.weather_task.model.utils.Converter
 import com.sysgears.weather_task.model.utils.Text
 import com.sysgears.weather_task.model.weather.IWeatherForecast
 
@@ -17,7 +18,7 @@ class Service {
     /**
      *
      */
-    static final PATH = "/home/nick/IdeaProjects/Weather_Task/src/main/resources/temperature.js"
+    static final PATH = "/home/nick/IdeaProjects/Weather_Task/src/main/resources/temperature.js"    // -----------Bad!!!
 
     /**
      * Developer's personal key.
@@ -63,7 +64,7 @@ class Service {
         data.each({
             map = (Map) it
             temperature.add([Text.formatTime(map.get("time").toString(), "HH:mm dd-MM-yyyy"),
-                             Double.valueOf(map.get("temperature").toString())])
+                             Converter.toCelsius(Double.valueOf(map.get("temperature").toString()))])
         })
 
         Plot t = new Plot("temperature", "#C72B2B", temperature)
