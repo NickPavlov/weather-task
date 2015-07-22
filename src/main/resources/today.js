@@ -23,7 +23,7 @@
             color: "#b9bbbb",
             fontSize: "30px"
         },
-        text: "Now"
+        text: "Today"
     },
 
     xAxis: {
@@ -41,7 +41,7 @@
     legend: {
         itemStyle: {
             color: "#b9bbbb",
-            fontSize: "35px",
+            fontSize: "22px",
             cursor: "default",
                 lineHeight: 0
         },

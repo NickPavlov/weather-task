@@ -23,22 +23,27 @@ class Service {
     static final String RESOURCES = "/home/nick/IdeaProjects/Weather_Task/src/main/resources/"
 
     /**
-     *
+     * Now widget configuration file.
      */
     static final String NOW = "now.js"
 
     /**
-     *
+     * Today widget configuration file.
+     */
+    static final String TODAY = "today.js"
+
+    /**
+     * Tomorrow widget configuration file.
      */
     static final String TOMORROW = "tomorrow.js"
 
     /**
-     *
+     * Temperature_hourly widget configuration file.
      */
     static final String TEMPERATURE_HOURLY = "temperature_hourly.js"
 
     /**
-     *
+     * Temperature_daily widget configuration file.
      */
     static final String TEMPERATURE_DAILY = "temperature_daily.js"
 
@@ -46,11 +51,6 @@ class Service {
      * Developer's personal key.
      */
     static final API_KEY = "c143d855c29d5fe59d2ce0830c834e04"
-
-    /**
-     * Widget unique key.
-     */
-    static final WIDGET = "152712-4ea7c95d-2f0d-49cc-8a08-59a6658b64ee"
 
     /**
      * Current coordinates.
@@ -139,6 +139,12 @@ class Service {
         Plot tomorrowMinMaxTPlot
         Highchart tomorrowHighchart
         Plot tomorrowSummaryPlot
+
+        StringBuilder todayTemperature
+        Plot todayMinMaxTPlot
+        Highchart todayHighchart
+        Plot todaySummaryPlot
+
         long currentUpdateRate
 
         while (isRunning) {
@@ -147,6 +153,7 @@ class Service {
             jsonParser = new JsonParser(response)
 
             //Update rate
+
             minutelyBlock = (Map) jsonParser.get("minutely")
             if (minutelyBlock) {
                 minutelyData = (List) minutelyBlock.get("data")
@@ -166,11 +173,9 @@ class Service {
                 }
             }
 
-            //-------------------------------------------------------------------------------------------------------Now
+            //now widget
 
             currentlyBlock = (Map) jsonParser.get("currently")
-
-
 
             //Current temperature
             currentTemperature = currentlyBlock.get("temperature").toString()
@@ -181,12 +186,8 @@ class Service {
 
             nowHighchart = Highchart.createFromFile(getResource(NOW), Widgets.NOW, API_KEY)
 
-            println "\nNow:"
-            println Http.post(nowHighchart.getRequestURL(),
-                    HEADERS, nowHighchart.getConfig([currentTemperaturePlot, currentSummaryPlot]))
+            //hourly widget
 
-
-            //----------------------------------------------------------------------------------------------------Hourly
             hourlyBlock = (Map) jsonParser.get("hourly")
             hourlyData = (List) hourlyBlock.get("data")
             hourlyTemperature = new ArrayList<Double>()
@@ -200,11 +201,7 @@ class Service {
             hourlyTemperatureHighchart = Highchart.createFromFile(getResource(TEMPERATURE_HOURLY),
                     Widgets.TEMPERATURE_HOURLY, API_KEY)
 
-            println "\nHourly:"
-            println Http.post(hourlyTemperatureHighchart.getRequestURL(), HEADERS,
-                    hourlyTemperatureHighchart.getConfig([hourlyTemperaturePlot]))
-
-            //-----------------------------------------------------------------------------------------------------Daily
+            //daily widget
 
             dailyBlock = (Map) jsonParser.get("daily")
             dailyData = (List) dailyBlock.get("data")
@@ -225,12 +222,28 @@ class Service {
             dailyTemperatureHighchart = Highchart.createFromFile(getResource(TEMPERATURE_DAILY),
                     Widgets.TEMPERATURE_DAILY, API_KEY)
 
-            println "\nDaily:"
-            println Http.post(dailyTemperatureHighchart.getRequestURL(), HEADERS,
-                    dailyTemperatureHighchart.getConfig([minTemperaturePlot, maxTemperaturePlot]))
+            //today widget
 
+            //Today min/max temperature
+            todayTemperature = new StringBuilder()
+            todayTemperature.append(minTemperatureDaily.get(0).get(1))
+                    .append(" ")
+                    .append(Text.CELSIUS_SIGN)
+                    .append("C")
+                    .append(" ... ")
+                    .append(maxTemperatureDaily.get(0).get(1))
+                    .append(" ")
+                    .append(Text.CELSIUS_SIGN)
+                    .append("C")
 
-            //--------------------------------------------------------------------------------------------------Tomorrow
+            todayMinMaxTPlot = new Plot(todayTemperature.toString(), lineColor, true, [])
+            //Tomorrow summary
+            temp = (Map) dailyData.get(0)
+            todaySummaryPlot = new Plot(temp.get("summary").toString(), lineColor, true, [])
+            todayHighchart = Highchart.createFromFile(getResource(TODAY),
+                    Widgets.TODAY, API_KEY)
+
+            //tomorrow widget
 
             //Tomorrow min/max temperature
             tomorrowTemperature = new StringBuilder()
@@ -246,17 +259,34 @@ class Service {
 
             tomorrowMinMaxTPlot = new Plot(tomorrowTemperature.toString(), lineColor, true, [])
             //Tomorrow summary
-            temp = (Map) dailyData.get(0)
-            println temp.get("summary").toString()
+            temp = (Map) dailyData.get(1)
             tomorrowSummaryPlot = new Plot(temp.get("summary").toString(), lineColor, true, [])
-
             tomorrowHighchart = Highchart.createFromFile(getResource(TOMORROW),
                     Widgets.TOMORROW, API_KEY)
 
 
-            println "\nNow:"
+            //post data to the server
+
+
+            println "\nNow post:"
+            println Http.post(nowHighchart.getRequestURL(),
+                    HEADERS, nowHighchart.getConfig([currentTemperaturePlot, currentSummaryPlot]))
+
+            println "\nToday post:"
+            println Http.post(todayHighchart.getRequestURL(),
+                    HEADERS, todayHighchart.getConfig([todayMinMaxTPlot, todaySummaryPlot]))
+
+            println "\nTomorrow post:"
             println Http.post(tomorrowHighchart.getRequestURL(),
                     HEADERS, tomorrowHighchart.getConfig([tomorrowMinMaxTPlot, tomorrowSummaryPlot]))
+
+            println "\nHourly post:"
+            println Http.post(hourlyTemperatureHighchart.getRequestURL(), HEADERS,
+                    hourlyTemperatureHighchart.getConfig([hourlyTemperaturePlot]))
+
+            println "\nDaily post:"
+            println Http.post(dailyTemperatureHighchart.getRequestURL(), HEADERS,
+                    dailyTemperatureHighchart.getConfig([minTemperaturePlot, maxTemperaturePlot]))
 
             try {
                 Thread.sleep(refreshRate)
