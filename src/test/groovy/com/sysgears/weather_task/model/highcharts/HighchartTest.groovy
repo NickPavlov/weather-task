@@ -1,11 +1,12 @@
-import com.sysgears.weather_task.model.highcharts.Highchart
+package com.sysgears.weather_task.model.highcharts
+
 import com.sysgears.weather_task.model.highcharts.plot.Plot
 import com.sysgears.weather_task.model.http.Http
 
 /**
- * Test.
+ * Highchart test.
  */
-class Test {
+class HighchartTest {
 
     static final PATH = "/home/nick/IdeaProjects/Weather_Task/src/main/resources/temperature.js"
     static final API_KEY = "c143d855c29d5fe59d2ce0830c834e04"

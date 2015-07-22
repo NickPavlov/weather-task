@@ -13,16 +13,26 @@ class Parameter {
     /**
      * Unix time.
      */
-    final int time
+    final long time
 
     /**
      * Creates the <code>Parameter</code> object specified by value and time.
      *
      * @param value double
-     * @param time int
+     * @param time long
      */
-    Parameter(final double value, final int time) {
+    Parameter(final double value, final long time) {
         this.value = value
         this.time = time
+    }
+
+    /**
+     * Returns String representation of the current object.
+     *
+     * @return String
+     */
+    @Override
+    public String toString() {
+        return "[${value},${time}]"
     }
 }
