@@ -8,7 +8,6 @@
         backgroundColor: "transparent",
         lineColor: "transparent",
         plotShadow: false,
-
             spacingBottom: -10,
             spacingTop: 10,
             spacingLeft: 10,
@@ -22,7 +21,7 @@
     title: {
         style: {
             color: "#b9bbbb",
-            fontSize: "35px"
+            fontSize: "25px"
         },
         text: "Now"
     },
@@ -42,7 +41,7 @@
     legend: {
         itemStyle: {
             color: "#b9bbbb",
-            fontSize: "35px",
+            fontSize: "22px",
             cursor: "default",
                 lineHeight: 0
         },

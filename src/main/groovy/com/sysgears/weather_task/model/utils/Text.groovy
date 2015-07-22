@@ -6,6 +6,11 @@ package com.sysgears.weather_task.model.utils
 class Text {
 
     /**
+     * Celsius sign.
+     */
+    static final String CELSIUS_SIGN = "\\\u00B0"
+
+    /**
      * Returns unix time formatted according to <code>format</code>.
      *
      * @param unixTime
