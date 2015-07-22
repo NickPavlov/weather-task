@@ -3,7 +3,7 @@ package com.sysgears.weather_task.model.highcharts.plot
 import groovy.json.JsonOutput
 
 /**
- * The <code>Plot</code> class provides functionality to work with a highchart plot.
+ * The <code>Plot</code> class provides functionality to work with a highchart charts.
  */
 class Plot {
 

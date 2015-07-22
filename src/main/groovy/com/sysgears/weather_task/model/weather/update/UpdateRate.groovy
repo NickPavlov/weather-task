@@ -12,19 +12,25 @@ class UpdateRate {
      * @param allowableDifference the difference between adjacent elements
      * @return int
      */
-    static int evaluate(final List<Parameter> data, final double allowableDifference) {
-        int rate;
-
-        Parameter temp;
-
+    static int evaluate(final List<Parameter> data, final double delta) {
+        int rate = Math.abs(data.get(0).time - data.get(data.size() - 1).time)
+        int temp
+        Parameter startElement
+        Parameter currentElement
         Iterator i = data.iterator()
-
-        double currentValue;
-
         while (i.hasNext()) {
-            currentValue = i.next().value
+            currentElement = i.next()
+            if (i.hasNext() && (Math.abs(currentElement.value - i.next().value) > delta)) {
+                if (startElement) {
+                    temp = Math.abs(startElement.time - currentElement.time)
+                    rate = temp < rate ? temp : rate
+                    startElement = null
+                } else {
+                    startElement = currentElement
+                }
+            }
         }
 
-        0
+        return rate
     }
 }
