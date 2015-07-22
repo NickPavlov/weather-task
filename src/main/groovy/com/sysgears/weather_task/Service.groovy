@@ -69,14 +69,24 @@ class Service {
     static final Map HEADERS = ["Content-Type": "application/json"]
 
     /**
+     * Default update rate in milliseconds.
+     */
+    static final long DEFAULT_UPDATE_RATE = 2000
+
+    /**
      * Weather updater.
      */
     final IWeatherForecast weatherUpdater;
 
     /**
+     * Service running state.
+     */
+    boolean isRunning
+
+    /**
      * Refresh rate in milliseconds.
      */
-    int refreshRate;
+    long refreshRate
 
     /**
      * Creates the <code>Service</code> object with a specified weather updater.
@@ -91,45 +101,85 @@ class Service {
      * Starts the service.
      */
     synchronized void start() {
-        //infinite loop!
-        //while (true) {
-            String response = weatherUpdater.getForecast(COORDINATES)
-            println response
-            IParser jsonParser = new JsonParser(response)
+        isRunning = true
 
-            Map map
+        refreshRate = DEFAULT_UPDATE_RATE
+
+        String response
+        IParser jsonParser
+        Map temp
+
+        Map minutelyBlock
+        List minutelyData
+        List<Parameter> parameters
+
+        Map currentlyBlock
+        String lineColor = "transparent"
+        String currentTemperature
+        String celsius
+        Plot currentTemperaturePlot
+        Plot currentSummaryPlot
+        Highchart nowHighchart
+
+        Map hourlyBlock
+        List hourlyData
+        List hourlyTemperature
+        Plot hourlyTemperaturePlot
+        Highchart hourlyTemperatureHighchart
+
+        Map dailyBlock
+        List dailyData
+        List<List> minTemperatureDaily
+        List<List> maxTemperatureDaily
+        Plot minTemperaturePlot
+        Plot maxTemperaturePlot
+        Highchart dailyTemperatureHighchart
+
+        StringBuilder tomorrowTemperature
+        Plot tomorrowMinMaxTPlot
+        Highchart tomorrowHighchart
+        Plot tomorrowSummaryPlot
+        long currentUpdateRate
+
+        while (isRunning) {
+            response = weatherUpdater.getForecast(COORDINATES)
+            println response
+            jsonParser = new JsonParser(response)
 
             //Update rate
-            Map minutelyBlock = (Map) jsonParser.get("minutely")
+            minutelyBlock = (Map) jsonParser.get("minutely")
             if (minutelyBlock) {
-                List minutelyData = (List) minutelyBlock.get("data")
-                List<Parameter> parameters = new ArrayList<Parameter>()
+                minutelyData = (List) minutelyBlock.get("data")
+                parameters = new ArrayList<Parameter>()
                 minutelyData.each {
-                    map = (Map) it
-                    parameters.add(new Parameter(Double.valueOf(map.get("precipProbability").toString()),
-                            Long.valueOf(map.get("time").toString())))
+                    temp = (Map) it
+                    parameters.add(new Parameter(Double.valueOf(temp.get("precipProbability").toString()),
+                            Long.valueOf(temp.get("time").toString())))
                 }
 
                 parameters.each { println it }
-                println "Update rate: ${UpdateRate.evaluate(parameters, 0.000001)}"
+                println "Update rate: "
+
+                currentUpdateRate = UpdateRate.evaluate(parameters, 0.000001)
+                if (currentUpdateRate < refreshRate) {
+                    refreshRate = currentUpdateRate
+                }
             }
 
             //-------------------------------------------------------------------------------------------------------Now
 
-            Map currentlyBlock = (Map) jsonParser.get("currently")
+            currentlyBlock = (Map) jsonParser.get("currently")
 
-            String lineColor = "transparent"
+
 
             //Current temperature
-            String currentTemperature = currentlyBlock.get("temperature").toString()
-            String celsius = Converter.toCelsius(Double.valueOf(currentTemperature)) + " ${Text.CELSIUS_SIGN}C"
-            Plot currentTemperaturePlot = new Plot(celsius, lineColor, true, [])
+            currentTemperature = currentlyBlock.get("temperature").toString()
+            celsius = Converter.toCelsius(Double.valueOf(currentTemperature)) + " ${Text.CELSIUS_SIGN}C"
+            currentTemperaturePlot = new Plot(celsius, lineColor, true, [])
             //Current summary
-            Plot currentSummaryPlot = new Plot(currentlyBlock.get("summary").toString(), lineColor, true, [])
+            currentSummaryPlot = new Plot(currentlyBlock.get("summary").toString(), lineColor, true, [])
 
-            Highchart nowHighchart = Highchart.createFromFile(getResource(NOW),
-                    Widgets.NOW, API_KEY)
-
+            nowHighchart = Highchart.createFromFile(getResource(NOW), Widgets.NOW, API_KEY)
 
             println "\nNow:"
             println Http.post(nowHighchart.getRequestURL(),
@@ -137,17 +187,17 @@ class Service {
 
 
             //----------------------------------------------------------------------------------------------------Hourly
-            Map hourlyBlock = (Map) jsonParser.get("hourly")
-            List data = (List) hourlyBlock.get("data")
-            List temperature_day = new ArrayList<Double>()
+            hourlyBlock = (Map) jsonParser.get("hourly")
+            hourlyData = (List) hourlyBlock.get("data")
+            hourlyTemperature = new ArrayList<Double>()
 
-            data.each({
-                map = (Map) it
-                temperature_day.add([Text.formatTime(map.get("time").toString(), TIME_FORMAT),
-                                     Converter.toCelsius(Double.valueOf(map.get("temperature").toString()))])
+            hourlyData.each({
+                temp = (Map) it
+                hourlyTemperature.add([Text.formatTime(temp.get("time").toString(), TIME_FORMAT),
+                                     Converter.toCelsius(Double.valueOf(temp.get("temperature").toString()))])
             })
-            Plot hourlyTemperaturePlot = new Plot("${Text.CELSIUS_SIGN}t", "#FFAF22", true, temperature_day)
-            Highchart hourlyTemperatureHighchart = Highchart.createFromFile(getResource(TEMPERATURE_HOURLY),
+            hourlyTemperaturePlot = new Plot("${Text.CELSIUS_SIGN}t", "#FFAF22", true, hourlyTemperature)
+            hourlyTemperatureHighchart = Highchart.createFromFile(getResource(TEMPERATURE_HOURLY),
                     Widgets.TEMPERATURE_HOURLY, API_KEY)
 
             println "\nHourly:"
@@ -156,23 +206,23 @@ class Service {
 
             //-----------------------------------------------------------------------------------------------------Daily
 
-            Map dailyBlock = (Map) jsonParser.get("daily")
-            List dailyData = (List) dailyBlock.get("data")
-            List<List> minTemperatureDaily = new ArrayList<List>()
-            List<List> maxTemperatureDaily = new ArrayList<List>()
+            dailyBlock = (Map) jsonParser.get("daily")
+            dailyData = (List) dailyBlock.get("data")
+            minTemperatureDaily = new ArrayList<List>()
+            maxTemperatureDaily = new ArrayList<List>()
 
             dailyData.each({
-                map = (Map) it
-                minTemperatureDaily.add([Text.formatTime(map.get("time").toString(), TIME_FORMAT),
-                                         Converter.toCelsius(Double.valueOf(map.get("temperatureMin").toString()))])
+                temp = (Map) it
+                minTemperatureDaily.add([Text.formatTime(temp.get("time").toString(), TIME_FORMAT),
+                                         Converter.toCelsius(Double.valueOf(temp.get("temperatureMin").toString()))])
 
-                maxTemperatureDaily.add([Text.formatTime(map.get("time").toString(), TIME_FORMAT),
-                                         Converter.toCelsius(Double.valueOf(map.get("temperatureMax").toString()))])
+                maxTemperatureDaily.add([Text.formatTime(temp.get("time").toString(), TIME_FORMAT),
+                                         Converter.toCelsius(Double.valueOf(temp.get("temperatureMax").toString()))])
             })
 
-            Plot minTemperaturePlot = new Plot("Min ${Text.CELSIUS_SIGN}t", "#5874FF", true, minTemperatureDaily)
-            Plot maxTemperaturePlot = new Plot("Max ${Text.CELSIUS_SIGN}t", "#FF5858", true, maxTemperatureDaily)
-            Highchart dailyTemperatureHighchart = Highchart.createFromFile(getResource(TEMPERATURE_DAILY),
+            minTemperaturePlot = new Plot("Min ${Text.CELSIUS_SIGN}t", "#5874FF", true, minTemperatureDaily)
+            maxTemperaturePlot = new Plot("Max ${Text.CELSIUS_SIGN}t", "#FF5858", true, maxTemperatureDaily)
+            dailyTemperatureHighchart = Highchart.createFromFile(getResource(TEMPERATURE_DAILY),
                     Widgets.TEMPERATURE_DAILY, API_KEY)
 
             println "\nDaily:"
@@ -183,23 +233,24 @@ class Service {
             //--------------------------------------------------------------------------------------------------Tomorrow
 
             //Tomorrow min/max temperature
-            StringBuilder tomorrowTemperature = new StringBuilder()
+            tomorrowTemperature = new StringBuilder()
             tomorrowTemperature.append(minTemperatureDaily.get(1).get(1))
+                    .append(" ")
                     .append(Text.CELSIUS_SIGN)
                     .append("C")
-                    .append("...")
+                    .append(" ... ")
                     .append(maxTemperatureDaily.get(1).get(1))
                     .append(" ")
                     .append(Text.CELSIUS_SIGN)
                     .append("C")
 
-            Plot tomorrowMinMaxTPlot = new Plot(tomorrowTemperature.toString(), lineColor, true, [])
+            tomorrowMinMaxTPlot = new Plot(tomorrowTemperature.toString(), lineColor, true, [])
             //Tomorrow summary
-            map = (Map) dailyData.get(0)
-            println map.get("summary").toString()
-            Plot tomorrowSummaryPlot = new Plot(map.get("summary").toString(), lineColor, true, [])
+            temp = (Map) dailyData.get(0)
+            println temp.get("summary").toString()
+            tomorrowSummaryPlot = new Plot(temp.get("summary").toString(), lineColor, true, [])
 
-            Highchart tomorrowHighchart = Highchart.createFromFile(getResource(TOMORROW),
+            tomorrowHighchart = Highchart.createFromFile(getResource(TOMORROW),
                     Widgets.TOMORROW, API_KEY)
 
 
@@ -207,8 +258,12 @@ class Service {
             println Http.post(tomorrowHighchart.getRequestURL(),
                     HEADERS, tomorrowHighchart.getConfig([tomorrowMinMaxTPlot, tomorrowSummaryPlot]))
 
-
-        //}
+            try {
+                Thread.sleep(refreshRate)
+            } catch (InterruptedException e) {
+                e.printStackTrace()
+            }
+        }
 
     }
 
@@ -216,7 +271,7 @@ class Service {
      * Stops the service.
      */
     synchronized void stop() {
-
+        isRunning = false
     }
 
     private static String getResource(final String resource) {

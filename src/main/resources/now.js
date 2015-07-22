@@ -21,7 +21,7 @@
     title: {
         style: {
             color: "#b9bbbb",
-            fontSize: "25px"
+            fontSize: "30px"
         },
         text: "Now"
     },

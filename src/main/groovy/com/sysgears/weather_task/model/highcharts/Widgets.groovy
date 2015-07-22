@@ -5,7 +5,6 @@ package com.sysgears.weather_task.model.highcharts
  */
 enum Widgets {
 
-
     NOW("152712-edb4a1e2-027e-45f7-b302-6e06fc4ac3a6"),
 
     TOMORROW("152712-3a2b491b-2c24-4951-854c-2fb8ae195984"),

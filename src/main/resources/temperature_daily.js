@@ -1,6 +1,6 @@
 {
     chart: {
-        type: "area",
+        type: "areaspline",
             style: {
             color: "#b9bbbb"
         },
