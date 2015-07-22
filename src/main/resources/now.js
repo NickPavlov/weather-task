@@ -7,7 +7,12 @@
         renderTo: "container",
         backgroundColor: "transparent",
         lineColor: "transparent",
-        plotShadow: false
+        plotShadow: false,
+
+            spacingBottom: -10,
+            spacingTop: 10,
+            spacingLeft: 10,
+            spacingRight: 10
     },
 
     credits: {
@@ -17,16 +22,15 @@
     title: {
         style: {
             color: "#b9bbbb",
-            fontSize: "30px"
+            fontSize: "35px"
         },
-        text: "Summary"
+        text: "Now"
     },
 
     xAxis: {
         title: {
             text: null
         }
-
     },
 
     yAxis: {
@@ -38,12 +42,21 @@
     legend: {
         itemStyle: {
             color: "#b9bbbb",
-            fontSize: "35px"
+            fontSize: "35px",
+            cursor: "default",
+                lineHeight: 0
+        },
+        itemHoverStyle: {
+            color: "#b9bbbb"
+        },
+        itemHiddenStyle: {
+            color: "#b9bbbb"
         },
         layout: "vertical",
         align: "center",
         verticalAlign: "middle",
         borderWidth: 2
+
     },
 
     series:[ /*data*/ ]

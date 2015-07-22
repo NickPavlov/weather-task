@@ -8,7 +8,7 @@ class Converter {
     /**
      * Accuracy.
      */
-    static final int accuracy = 1000;
+    static final int accuracy = 10;
 
     /**
      * Converts temperature from fahrenheit to celsius.

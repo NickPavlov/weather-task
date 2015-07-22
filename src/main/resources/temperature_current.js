@@ -19,7 +19,7 @@
             color: "#b9bbbb",
             fontSize: "25px"
         },
-        text: "Temperature"
+        text: "Today"
     },
 
     xAxis: {
@@ -38,12 +38,19 @@
     legend: {
         itemStyle: {
             color: "#b9bbbb",
-            fontSize: "25px"
+            fontSize: "35px",
+            cursor: "default"
+        },
+        itemHoverStyle: {
+            color: "#b9bbbb"
+        },
+        itemHiddenStyle: {
+            color: "#b9bbbb"
         },
         layout: "vertical",
             align: "center",
             verticalAlign: "middle",
-            borderWidth: 0
+            borderWidth: 2
     },
 
     series:[ /*data*/ ]
