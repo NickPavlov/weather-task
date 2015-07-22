@@ -11,7 +11,7 @@ class Parameter {
     final double value
 
     /**
-     * Unix time.
+     * The time at which the parameter was at current value.
      */
     final long time
 

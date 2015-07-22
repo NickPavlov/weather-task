@@ -44,14 +44,15 @@ class Highchart implements IHighchart {
      * Creates the <code>Highchart</code> object from file.
      *
      * @param path file path
+     * @param widget
      * @param api_key developer's personal api key
      * @return Highchart object
      */
-    static Highchart createFromFile(final String path, final String widgetKey, final String apiKey) {
+    static Highchart createFromFile(final String path, final Widgets widget, final String apiKey) {
         //String highchartFile = new TextFileReader().getContent(path)
         //String postBody = JsonOutput.toJson([api_key: apiKey, data: [highchart: highchartFile.toString()]])
 
-        new Highchart(widgetKey, apiKey, new TextFileReader().getContent(path))
+        new Highchart(widget.key, apiKey, new TextFileReader().getContent(path))
     }
 
     /**

@@ -18,6 +18,11 @@ class Plot {
     final String color
 
     /**
+     * Visibility.
+     */
+    final boolean visible
+
+    /**
      * Plot data
      */
     final List data;
@@ -27,12 +32,14 @@ class Plot {
      *
      * @param name String
      * @param color String
+     * @param visible visibility
      * @param data list of data
      */
-    Plot(final String name, final String color, final List data) {
+    Plot(final String name, final String color, final boolean visible, final List data) {
         this.name = name
         this.color = color
         this.data = data
+        this.visible = visible
     }
 
     /**
@@ -42,6 +49,6 @@ class Plot {
      */
     @Override
     public String toString() {
-        JsonOutput.toJson([name: name, data: data, color: color])
+        JsonOutput.toJson([name: name, data: data, color: color, visible: visible])
     }
 }
