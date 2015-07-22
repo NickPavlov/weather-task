@@ -48,6 +48,11 @@ class Service {
     static final String TEMPERATURE_DAILY = "temperature_daily.js"
 
     /**
+     * Precipitation_daily widget configuration file.
+     */
+    static final String PRECIPITATION_DAILY = "precipitation_daily.js"
+
+    /**
      * Developer's personal key.
      */
     static final API_KEY = "c143d855c29d5fe59d2ce0830c834e04"
@@ -55,8 +60,8 @@ class Service {
     /**
      * Current coordinates.
      */
-    //static final Coordinates COORDINATES = new Coordinates(48.455329, 35.035030)
-    static final Coordinates COORDINATES = new Coordinates(37.8267, -122.423)
+    static final Coordinates COORDINATES = new Coordinates(48.455329, 35.035030)
+    //static final Coordinates COORDINATES = new Coordinates(37.8267, -122.423)
 
     /**
      * Time format.
@@ -149,7 +154,7 @@ class Service {
 
         while (isRunning) {
             response = weatherUpdater.getForecast(COORDINATES)
-            println response
+            //println response
             jsonParser = new JsonParser(response)
 
             //Update rate
@@ -171,6 +176,7 @@ class Service {
                 if (currentUpdateRate < refreshRate) {
                     refreshRate = currentUpdateRate
                 }
+                println refreshRate
             }
 
             //now widget
@@ -201,12 +207,14 @@ class Service {
             hourlyTemperatureHighchart = Highchart.createFromFile(getResource(TEMPERATURE_HOURLY),
                     Widgets.TEMPERATURE_HOURLY, API_KEY)
 
-            //daily widget
+            //daily widgets
 
             dailyBlock = (Map) jsonParser.get("daily")
             dailyData = (List) dailyBlock.get("data")
             minTemperatureDaily = new ArrayList<List>()
             maxTemperatureDaily = new ArrayList<List>()
+
+            List precipProbability = new ArrayList<List>()
 
             dailyData.each({
                 temp = (Map) it
@@ -215,12 +223,19 @@ class Service {
 
                 maxTemperatureDaily.add([Text.formatTime(temp.get("time").toString(), TIME_FORMAT),
                                          Converter.toCelsius(Double.valueOf(temp.get("temperatureMax").toString()))])
+
+                precipProbability.add([Text.formatTime(temp.get("time").toString(), TIME_FORMAT),
+                                    Converter.toCelsius(Double.valueOf(temp.get("precipProbability").toString()))])
             })
 
             minTemperaturePlot = new Plot("Min ${Text.CELSIUS_SIGN}t", "#5874FF", true, minTemperatureDaily)
             maxTemperaturePlot = new Plot("Max ${Text.CELSIUS_SIGN}t", "#FF5858", true, maxTemperatureDaily)
+            Plot precipProbabilityPlot = new Plot("probability of precipitation", "#FFAF22", true, precipProbability)
             dailyTemperatureHighchart = Highchart.createFromFile(getResource(TEMPERATURE_DAILY),
                     Widgets.TEMPERATURE_DAILY, API_KEY)
+
+            Highchart dailyPrecipitationHighchart = Highchart.createFromFile(getResource(PRECIPITATION_DAILY),
+                    Widgets.PRECIPITATION_DAILY, API_KEY)
 
             //today widget
 
@@ -287,6 +302,11 @@ class Service {
             println "\nDaily post:"
             println Http.post(dailyTemperatureHighchart.getRequestURL(), HEADERS,
                     dailyTemperatureHighchart.getConfig([minTemperaturePlot, maxTemperaturePlot]))
+
+            /*
+            println Http.post(dailyPrecipitationHighchart.getRequestURL(), HEADERS,
+                    dailyPrecipitationHighchart.getConfig([precipProbabilityPlot]))
+            */
 
             try {
                 Thread.sleep(refreshRate)
